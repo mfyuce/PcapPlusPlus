@@ -4,28 +4,29 @@ endif
 
 include mk/platform.mk
 
-COMMONPP_HOME        := Common++
-PACKETPP_HOME        := Packet++
-PCAPPP_HOME          := Pcap++
-PACKETPP_TEST        := Tests/Packet++Test
-PCAPPP_TEST          := Tests/Pcap++Test
-EXAMPLE_ARPSPOOF     := Examples/ArpSpoofing
-EXAMPLE_ARPING       := Examples/Arping
-EXAMPLE_DPDK1        := Examples/DpdkExample-FilterTraffic
-EXAMPLE_DNSSPOOF     := Examples/DnsSpoofing
-EXAMPLE_DNSRESOLVER  := Examples/DNSResolver
-EXAMPLE_HTTPANALYZE  := Examples/HttpAnalyzer
-EXAMPLE_PF_RING1     := Examples/PfRingExample-FilterTraffic
-EXAMPLE_PCAP_PRINT   := Examples/PcapPrinter
-EXAMPLE_SSLANALYZER  := Examples/SSLAnalyzer
-EXAMPLE_PCAPSPLITTER := Examples/PcapSplitter
-EXAMPLE_PCAPSEARCH   := Examples/PcapSearch
-EXAMPLE_ICMP_FT      := Examples/IcmpFileTransfer
-EXAMPLE_TCP_REASM    := Examples/TcpReassembly
-EXAMPLE_IP_FRAG      := Examples/IPFragUtil
-EXAMPLE_IP_DEFRAG    := Examples/IPDefragUtil
-EXAMPLE_DPDK2        := Examples/DpdkBridge
-EXAMPLE_KNI_PONG     := Examples/KniPong
+COMMONPP_HOME          := Common++
+PACKETPP_HOME          := Packet++
+PCAPPP_HOME            := Pcap++
+PACKETPP_TEST          := Tests/Packet++Test
+PCAPPP_TEST            := Tests/Pcap++Test
+EXAMPLE_ARPSPOOF       := Examples/ArpSpoofing
+EXAMPLE_ARPING         := Examples/Arping
+EXAMPLE_DPDK1          := Examples/DpdkExample-FilterTraffic
+EXAMPLE_DNSSPOOF       := Examples/DnsSpoofing
+EXAMPLE_DNSRESOLVER    := Examples/DNSResolver
+EXAMPLE_HTTPANALYZE    := Examples/HttpAnalyzer
+EXAMPLE_NETWORKLOGGER  := Examples/NetworkLogger
+EXAMPLE_PF_RING1       := Examples/PfRingExample-FilterTraffic
+EXAMPLE_PCAP_PRINT     := Examples/PcapPrinter
+EXAMPLE_SSLANALYZER    := Examples/SSLAnalyzer
+EXAMPLE_PCAPSPLITTER   := Examples/PcapSplitter
+EXAMPLE_PCAPSEARCH     := Examples/PcapSearch
+EXAMPLE_ICMP_FT        := Examples/IcmpFileTransfer
+EXAMPLE_TCP_REASM      := Examples/TcpReassembly
+EXAMPLE_IP_FRAG        := Examples/IPFragUtil
+EXAMPLE_IP_DEFRAG      := Examples/IPDefragUtil
+EXAMPLE_DPDK2          := Examples/DpdkBridge
+EXAMPLE_KNI_PONG       := Examples/KniPong
 
 
 UNAME := $(shell uname)
@@ -41,6 +42,7 @@ all: libs
 	@cd $(EXAMPLE_DNSSPOOF)          && $(MAKE) DnsSpoofing
 	@cd $(EXAMPLE_DNSRESOLVER)       && $(MAKE) DNSResolver
 	@cd $(EXAMPLE_HTTPANALYZE)       && $(MAKE) HttpAnalyzer
+	@cd $(EXAMPLE_NETWORKLOGGER)     && $(MAKE) NetworkLogger
 	@cd $(EXAMPLE_PCAP_PRINT)        && $(MAKE) PcapPrinter
 	@cd $(EXAMPLE_SSLANALYZER)       && $(MAKE) SSLAnalyzer
 	@cd $(EXAMPLE_PCAPSPLITTER)      && $(MAKE) PcapSplitter
@@ -64,6 +66,7 @@ endif
 	$(CP) $(EXAMPLE_DNSSPOOF)/Bin/* ./Dist/examples
 	$(CP) $(EXAMPLE_DNSRESOLVER)/Bin/* ./Dist/examples
 	$(CP) $(EXAMPLE_HTTPANALYZE)/Bin/* ./Dist/examples
+	$(CP) $(EXAMPLE_NETWORKLOGGER)/Bin/* ./Dist/examples
 	$(CP) $(EXAMPLE_PCAP_PRINT)/Bin/* ./Dist/examples
 	$(CP) $(EXAMPLE_SSLANALYZER)/Bin/* ./Dist/examples
 	$(CP) $(EXAMPLE_PCAPSPLITTER)/Bin/* ./Dist/examples
@@ -112,6 +115,7 @@ clean:
 	@cd $(EXAMPLE_DNSSPOOF)          && $(MAKE) clean
 	@cd $(EXAMPLE_DNSRESOLVER)       && $(MAKE) clean
 	@cd $(EXAMPLE_HTTPANALYZE)       && $(MAKE) clean
+	@cd $(EXAMPLE_NETWORKLOGGER)     && $(MAKE) clean
 	@cd $(EXAMPLE_PCAP_PRINT)        && $(MAKE) clean
 	@cd $(EXAMPLE_SSLANALYZER)       && $(MAKE) clean
 	@cd $(EXAMPLE_PCAPSPLITTER)      && $(MAKE) clean
